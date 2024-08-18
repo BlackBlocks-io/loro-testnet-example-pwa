@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@blackblocks/pwa",
+  "name": "@blackblocks/pwa-test-321",
   "version": "0.0.2",
   "repository": "https://github.com/BlackBlocks-io/loro-testnet-example-pwa",
   "scripts": {

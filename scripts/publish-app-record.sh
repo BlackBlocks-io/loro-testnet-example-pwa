@@ -77,12 +77,12 @@ if [ "true" == "$CERC_IS_LATEST_RELEASE" ]; then
   laconic -c $CONFIG_FILE registry name set --user-key "${CERC_REGISTRY_USER_KEY}" --bond-id ${CERC_REGISTRY_BOND_ID} "$CERC_REGISTRY_APP_CRN" "$AR_RECORD_ID"
 fi
 
-PAYMENT_TX=$(laconic -c $CONFIG_FILE registry tokens send \
-  --address $CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_TO \
-  --user-key "${CERC_REGISTRY_DEPLOYMENT_REQUEST_USER_KEY}" \
-  --bond-id "${CERC_REGISTRY_DEPLOYMENT_REQUEST_BOND_ID}" \
-  --type alnt \
-  --quantity ${CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_AMOUNT:-10000} | jq '.tx.hash')
+#PAYMENT_TX=$(laconic -c $CONFIG_FILE registry tokens send \
+#  --address $CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_TO \
+#  --user-key "${CERC_REGISTRY_DEPLOYMENT_REQUEST_USER_KEY}" \
+#  --bond-id "${CERC_REGISTRY_DEPLOYMENT_REQUEST_BOND_ID}" \
+#  --type alnt \
+#  --quantity ${CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_AMOUNT:-10000} | jq '.tx.hash')
 
 APP_RECORD=$(laconic -c $CONFIG_FILE registry name resolve "$CERC_REGISTRY_APP_CRN" | jq '.[0]')
 if [ -z "$APP_RECORD" ] || [ "null" == "$APP_RECORD" ]; then
